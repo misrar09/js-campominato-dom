@@ -26,10 +26,6 @@ playButton.addEventListener("click", function () {
 
     }
 
-
-    
-
-
     else if (difficultyLevel == "medium") {
         for (let squareNum = 1; squareNum < 82; squareNum++) {
             createSquareDiv("boxMedium", squareNum, numbers);
@@ -55,11 +51,11 @@ function createSquareDiv(className, squareNum, numbers) {
     const squareDiv = document.createElement("div");
     squareDiv.classList.add(className);
     grid.appendChild(squareDiv);
-    squareDiv.innerHTML = `${squareNum}`;
+    squareDiv.textContent = `${squareNum}`;
 
     squareDiv.addEventListener("click", function () {
         if (numbers && numbers.includes(squareNum)) {
-            console.log("box number is:", squareNum);
+            console.log("box number is:", squareNum + numbers);
             squareDiv.classList.toggle("red");
         } else {
             console.log("box number is:", squareNum);
@@ -69,6 +65,8 @@ function createSquareDiv(className, squareNum, numbers) {
 
     return squareDiv;
 }
+
+
 
 
 //Generate 16 random numbers for each difficulty level and in the range of number of squaures:
@@ -95,7 +93,7 @@ function displayBombNumbers(numbers) {
     for (let i = 0; i < numbers.length; i++) {
         const number = numbers[i];
         const numberElement = document.createElement('span');
-        numberElement.textContent = `${number} `;
+        numberElement.innerHTML = `${number} `;
         numberBombs.appendChild(numberElement);
     }
 

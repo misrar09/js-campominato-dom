@@ -78,6 +78,10 @@ main {
     background-color: blue;
 }
 
+.red{
+    background-color: red;
+}
+
 #difficulty {
     width: 7rem;
     background-color: red;

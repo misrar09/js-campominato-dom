@@ -1,3 +1,6 @@
+
+
+
 // create a 10x10 grid 
 
 const grid = document.getElementById("grid");
@@ -11,51 +14,64 @@ playButton.addEventListener("click", function () {
 
     let difficultyLevel = difficulty.value;
 
+    let numbers;
+
     if (difficultyLevel == "easy") {
-        for (let i = 1; i < 101; i++) {
-            createSquareDiv("box", i);
+        for (let squareNum = 1; squareNum < 101; squareNum++) {
+            createSquareDiv("box", squareNum, numbers);
         }
 
-        const numbers = randomNumbers(100);
+        numbers = randomNumbers(100);
         displayBombNumbers(numbers);
 
     }
+
+
+    
+
+
     else if (difficultyLevel == "medium") {
-        for (let i = 1; i < 82; i++) {
-            createSquareDiv("boxMedium", i);
+        for (let squareNum = 1; squareNum < 82; squareNum++) {
+            createSquareDiv("boxMedium", squareNum, numbers);
         }
 
-        const numbers = randomNumbers(81);
+        numbers = randomNumbers(81);
         displayBombNumbers(numbers);
 
     }
     else if (difficultyLevel == "hard") {
-        for (let i = 1; i < 50; i++) {
-            createSquareDiv("boxHard", i)
+        for (let squareNum = 1; squareNum < 50; squareNum++) {
+            createSquareDiv("boxHard", squareNum, numbers)
         }
 
-        const numbers = randomNumbers(49);
+        numbers = randomNumbers(49);
         displayBombNumbers(numbers);
 
     }
 });
 
 // FUNCTION CREATED TO REPEAT THE CODE
-function createSquareDiv(className, i) {
+function createSquareDiv(className, squareNum, numbers) {
     const squareDiv = document.createElement("div");
     squareDiv.classList.add(className);
     grid.appendChild(squareDiv);
-    squareDiv.innerHTML = `${[i]}`;
+    squareDiv.innerHTML = `${squareNum}`;
 
     squareDiv.addEventListener("click", function () {
-        console.log("box number is:", i);
-        squareDiv.classList.toggle("blue");
-
+        if (numbers && numbers.includes(squareNum)) {
+            console.log("box number is:", squareNum);
+            squareDiv.classList.toggle("red");
+        } else {
+            console.log("box number is:", squareNum);
+            squareDiv.classList.toggle("blue");
+        }
     });
 
-    return squareDiv; // Return the created div 
+    return squareDiv;
 }
 
+
+//Generate 16 random numbers for each difficulty level and in the range of number of squaures:
 const easySquares = 100
 const mediumSquares = 81
 const hardSquares = 49
@@ -71,8 +87,7 @@ function randomNumbers(totalSquares) {
     return numbers;
 }
 
-
-
+//display the numbers in a span in html 
 function displayBombNumbers(numbers) {
     const numberBombs = document.getElementById('numBombs');
     numberBombs.innerHTML = ""; // Clear previous bomb numbers
@@ -83,7 +98,7 @@ function displayBombNumbers(numbers) {
         numberElement.textContent = `${number} `;
         numberBombs.appendChild(numberElement);
     }
-    
+
 }
 
 
@@ -93,7 +108,9 @@ function displayBombNumbers(numbers) {
 
 
 
-//Generate 16 random numbers for each difficulty level
+
+
+
 //
 
 

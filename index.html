@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>JS CAMPO MINATO DOM</title>
+</head>
+
+<body>
+
+    <header>
+        <!-- LEFT SECTION OF THE HEADER WITH LOGO AND HEADING -->
+        <div class="left">
+            <img src="./logo/mobile-logo.png" alt="Logo">
+            <h1>Campo Minato</h1>
+        </div>
+
+        <!-- RIGHT SECTION OF THE HEADER WITH SELECTING LEVELS AND BUTTON -->
+        <div class="right">
+            
+            <label for="difficulty"><b>Difficulty Level:</b></label>
+            <select id="difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+            <button class="playBtn">Play</button>
+
+            <div id="numBombs"><b>Bombs:</b></div>
+            
+        </div>
+
+    </header>
+    <!-- MAIN SECTION WITH GRIDS AND BOXES(CREATED IN JS) -->
+    <main>
+        <div id="grid"> </div>
+    </main>
+    <!-- FOOTER SECTION WITH INFO -->
+    <footer>
+        <div>
+            <p>Made with &hearts; by <a href="#">Boolean</a> </p>
+        </div>
+    </footer>
+
+
+    <script src="main.js"></script>
+</body>
+
+</html>
